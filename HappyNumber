@@ -1,0 +1,10 @@
+class Solution(object):
+    def isHappy(self, n):
+        listTrack = []
+        while(n!=1):
+            n = str(n)
+            n = sum(int(i)**2 for i in n)
+            if n in listTrack and n != 1:
+                return False
+            listTrack.append(n)
+        return True
