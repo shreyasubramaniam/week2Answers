@@ -1,0 +1,33 @@
+class Solution(object):
+    def uncommonFromSentences(self, A, B):
+        dictA = dict()
+        dictB = dict()
+        
+        A = str(A)
+        B = str(B)
+        
+        A = A.split(" ")
+        B = B.split(" ")
+        
+        wordList = []
+        for word in A:
+            if word not in dictA.keys():
+                dictA[str(word)] = 1
+            else:
+                dictA[str(word)] += 1
+        
+        for word in B:
+            if word not in dictB.keys():
+                dictB[str(word)] = 1
+            else:
+                dictB[str(word)] += 1
+        
+        for word in dictA.keys():
+            if dictA[word] == 1 and word not in dictB.keys():
+                wordList.append(word)
+        
+        for word in dictB.keys():
+            if dictB[word] == 1 and word not in dictA.keys():
+                wordList.append(word)
+        
+        return wordList
