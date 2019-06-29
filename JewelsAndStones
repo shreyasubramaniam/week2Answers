@@ -1,0 +1,20 @@
+class Solution(object):
+    def numJewelsInStones(self, J, S):
+        J = str(J)
+        S = str(S)
+        
+        count = 0
+        
+        stoneDict = dict()
+        for i in S:
+            if i not in stoneDict.keys():
+                stoneDict[i] = 1
+            else:
+                stoneDict[i] += 1
+        print stoneDict
+        
+        for i in J:
+            if i in stoneDict.keys():
+                count += stoneDict[i]
+        
+        return count
